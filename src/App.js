@@ -12,6 +12,8 @@ class App extends Component {
       keyPadPrsCb: (keyID) => {
         // Passes the keyID on to keyPressIntake for processing
         this.keyPressIntake(keyID);
+        // console.log('test');
+        
       },
       // keyPressed: '',
       displayHistory: [''],
@@ -21,6 +23,9 @@ class App extends Component {
   }
 
   keyPressIntake(keyID) {
+    const innerThis = this;
+    // console.log('keyPressIntake ran');
+    
     let dispH = this.state.displayHistory;
     let disp = this.state.display;
     const lastValue = dispH[dispH.length - 1];
@@ -31,7 +36,7 @@ class App extends Component {
 
     // Sends data to setState
     function handleSetState({displayHistory, display}) {
-      this.setState({
+      innerThis.setState({
         displayHistory,
         display
       });
@@ -42,10 +47,10 @@ class App extends Component {
     // example:
       // return {displayHistory: '', display: [''] }
 
-    function generateDataFromKeyPress(params) {
+    function generateDataFromKeyPress(keyID) {
 
-      function isOperator(params) {
-        if(params === '-' || params === '+' || params === '/' || params === '*'   ){
+      function isOperator(whatIsIt) {
+        if(whatIsIt === '-' || whatIsIt === '+' || whatIsIt === '/' || whatIsIt === '*'   ){
           return true;
         }
         return false;
@@ -73,14 +78,17 @@ class App extends Component {
         case '*': {
           if (isOperator(lastValue)) {
             dispH.pop();
-          } 
+          } else if(secLastValue === '='){
+            dispH = [lastValue];
+            disp = keyID;
+          }
           dispH.push(keyID);
-          return {displayHistory: dispH, display: keyID };
+          return {displayHistory: [...dispH], display: keyID };
         }
 
         case '0': {
           if (disp === '0') {
-            return {dispH, disp};
+            return {displayHistory: [...dispH], display: disp};
           } 
           // else fall through to rules for 1-9
         }
@@ -96,15 +104,19 @@ class App extends Component {
         case '9': {
           if (isOperator(lastValue)) {
             dispH.push(keyID);
+            disp= keyID;
           } else if(secLastValue === '=') {
             disp = keyID;
             dispH = [keyID];
+          } else if(disp === '0'){
+            dispH[dispH.length -1] = keyID;
+            disp = keyID;
           } else {
             dispH[dispH.length -1] += keyID;
             disp += keyID;
           }
           
-          return {displayHistory: dispH, display: disp };
+          return {displayHistory: [...dispH], display: disp };
         }
 
         case '.': {
@@ -117,7 +129,7 @@ class App extends Component {
           } 
           // else returns original value
 
-          return {displayHistory: dispH, display: disp };
+          return {displayHistory: [...dispH], display: disp };
         }
 
         default:
@@ -180,10 +192,11 @@ class App extends Component {
     return(
       <div>
         <MainDisplay 
-        
+          displayHistory={this.state.displayHistory}
+          display={this.state.display}
         />
         <KeyPad 
-           keyPadPrsCb={this.props.keyPadPrsCb}
+           keyPadPrsCb={this.state.keyPadPrsCb}
         />
       </div>
     )

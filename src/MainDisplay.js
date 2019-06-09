@@ -6,8 +6,8 @@ class MainDisplay extends Component {
     const {displayHistory, display} = this.props;
     return(
       <div className="main-display">
-        <div>{displayHistory}</div>
-        <div id="display">{display}</div>
+        <div>DISPLAY HISTORY: {displayHistory}</div>
+        <div id="display">DISPLAY: {display}</div>
       </div>
     )
   }

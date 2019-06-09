@@ -2,7 +2,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 // Data for testing
-const fullInput = ['0.1', '+', '0.2', '*', '4', '+', 7, '-', 90, '/', 333333];
+// const fullInput = ['0.1', '+', '0.2', '*', '4', '+', 7, '-', 90, '/', 333333];
 
 
 // TO DO When user hits '=', then what is in fullInput gets sent to getResult
@@ -71,9 +71,10 @@ function getResult(fullInput) {
   result = result.toFixed(10);
 
   // Removes trailing zeroes
-  result = result.replace(/0*$/, '');
+  result = result.replace(/0*$/, ''); // because of the toFixed, is there always a '.', which is why '20' does not get changed to '2'? It is really '20.'?
 
-  // TO DO Will the '.' need removed in some instances? When the result is a whole number.
+  // Removes trailing '.'
+  result = result.replace(/.$/, '');
 
   // Copies array
   const newFullInput = [...fullInput];
@@ -84,6 +85,6 @@ function getResult(fullInput) {
   return getResult(newFullInput);
 }
 
-console.log(getResult(fullInput));
+//console.log(getResult(fullInput));
 
 export default getResult;

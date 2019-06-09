@@ -99,23 +99,29 @@ class KeyPad extends Component {
   }
   // 'e' takes in touch or keyboard info
   keyPrsCb(e) {
+    //console.log('keyPrsCb ran');
+    
     let keyID = '';
     // Gets key value
     // From keyboard
     if(e.key !== undefined) {
+      //console.log('From keyboard');
       keyID = e.key.toLowerCase();
       // Or from touch/click
-    } else if (e.target.getAttribute('keyValue') !== undefined) {
-      keyID = e.target.getAttribute('keyValue');
+    } else if (e.target.getAttribute('keyvalue') !== undefined) {
+      //console.log('from touch/click');
+      keyID = e.target.getAttribute('keyvalue');
     } else {
       return;
     }
 
   // Checks for target key
   // 'some' returns true if any of the values return true
-  if (this.keyDataArr.some( obj => obj.keyValue === keyID) ) {
+  // Note: Keep in mind the format of the data (obj[1]), array that contains two values, one is a key/name and the second is the object with the needed data
+  if (this.keyDataArr.some( obj => obj[1].keyValue === keyID) ) {
     // Sends keyID, via callback, to App
     this.props.keyPadPrsCb(keyID);
+    // console.log('this.props.keyPadPrsCb(keyID); RAN');
   }
   }
 
@@ -132,12 +138,14 @@ class KeyPad extends Component {
       <section>
         {
           this.keyDataArr.map( (item, index) => (
+            // console.log('this.keyDataArr.map  ', item, index),
+            
             <Key 
               key={index} 
-              keyID={item.keyID} 
-              keyDisplay={item.keyDisplay} 
-              keyValue={item.keyValue} 
-              keyPrsCb={this.state.keyPrsCb}
+              keyID={item[1].keyID} 
+              keyDisplay={item[1].keyDisplay} 
+              keyValue={item[1].keyValue} 
+              keyPrsCb={this.keyPrsCb}
           />
           ))
         }

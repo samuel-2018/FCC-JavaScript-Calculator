@@ -6,9 +6,10 @@ class Key extends Component {
   // }
   render(){
     const {keyID, keyPrsCb, keyDisplay, keyValue} = this.props;
-
+    // console.log('key component, keyPrsCb: ', keyPrsCb);
+    
     return(
-      <div id={keyID} className={"key "+keyID} onClick={keyPrsCb} keyValue={keyValue}>
+      <div id={keyID} className={"key "+keyID} onClick={keyPrsCb} keyvalue={keyValue}>
         {keyDisplay}
       </div>
     )
@@ -16,3 +17,6 @@ class Key extends Component {
 }
 
 export default Key;
+
+//TO DO Research the case of custom attributes 
+//got error when having attribute in uppercase
