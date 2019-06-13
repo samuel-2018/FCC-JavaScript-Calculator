@@ -61,13 +61,14 @@ function getResult(fullInput) {
 
   // Fixes the decimal problem to the nth place
   result = result.toFixed(10);
-
+  console.log(result);
   // Removes trailing zeroes
   result = result.replace(/0*$/, ''); // Because of the toFixed, is there always a '.', which is why '20' does not get changed to '2'? It is really '20.'?
-
+  console.log(result);
   // Removes trailing '.'
-  result = result.replace(/.$/, '');
-
+  result = result.replace(/\.$/, '');
+  console.log(result);
+  
   // Copies array
   const newFullInput = [...fullInput];
   // Updates array with old operands removed, result inserted
