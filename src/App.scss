@@ -1,35 +1,80 @@
 
 
-* {
-  border: 1px dashed orangered;
-}
+// * {
+//   border: 1px dashed orangered;
+// }
 /***************************
             BASE           */
 
 /***************************
             LAYOUT         */
 
+body {
+  background-color: steelblue;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96vh;
+}
 /*Calculator Container *****/
 .calc-container {
-
+  border: 2px solid gray;
+  margin-right: auto;
+  margin-left: auto;
+  width: 22rem;
+  //display: block;
+ // position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: silver;
 }
 
 /*Display *****************/
+// TO DO make it so each display wraps the text
 .main-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 20.5rem;
+  box-sizing: border-box;
+  //height: 30px;
 
+  color: black;
+  font-family: monospace , Courier, 'Courier New';
+  max-width: 100%;
+  text-align: right;
+  min-height: 6.5rem;
+  padding: .3rem;
+  background-color: black;
+  color: rgb(165, 219, 83);
+  margin-top: .6rem;
 }
 .display-history {
+ min-height: 1.5rem;
+ font-size: 1.3rem;
+// line-height: 
+max-width: 100%;
 
 }
-.display {
 
+// 'overflow-wrap' seems to only work on the first child of an element, so each element needing wrapping now has a parent for that sole purpose.
+.display-history-wrapper, .display-wrapper {
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+.display {
+  min-height: 2rem;
+  font-size: 1.7rem;
 }
 
 /*Key Pad GRID ************/
 .key-pad {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px 50px;
+  grid-template-columns: 5rem 5rem 5rem 5rem;
+  grid-template-rows: 5rem 5rem 5rem 5rem 5rem;
   grid-template-areas: 
   "clear clear divide multiply"
   "seven eight nine subtract"
@@ -43,6 +88,8 @@
 
   color: whitesmoke;
   font-family: monospace , Courier, 'Courier New';
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 
@@ -63,23 +110,32 @@
 background-color: rgb(37, 33, 33);
 text-align: center;
 border: 1px solid black;
-line-height: 50px;
+line-height: 5rem;
 // width: 80px;
 // height: 80px;
   &:hover {
-    background-color: gray;
+    background-color: rgb(65, 64, 64);
   }
 }
 
 .item-equals {
-  line-height: 100px;
-  background-color: green;
+  line-height: 10rem;
+  background-color: rgb(37, 37, 197);
+  &:hover {
+    background-color: rgb(64, 64, 209);
+  }
 }
 .item-clear {
   background-color: rgb(214, 72, 72);
+  &:hover {
+    background-color: rgb(253, 115, 115);
+  }
 }
 .item-divide, .item-multiply, .item-subtract, .item-add {
   background-color: rgb(99, 98, 98);
+   &:hover {
+    background-color: rgb(145, 145, 145);
+  }
 }
 
 

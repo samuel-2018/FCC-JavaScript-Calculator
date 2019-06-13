@@ -1,23 +1,70 @@
-* {
-  border: 1px dashed orangered; }
-
 /***************************
             BASE           */
 /***************************
             LAYOUT         */
+body {
+  background-color: steelblue; }
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96vh; }
+
 /*Calculator Container *****/
+.calc-container {
+  border: 2px solid gray;
+  margin-right: auto;
+  margin-left: auto;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: silver; }
+
 /*Display *****************/
+.main-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 20.5rem;
+  box-sizing: border-box;
+  color: black;
+  font-family: monospace , Courier, 'Courier New';
+  max-width: 100%;
+  text-align: right;
+  min-height: 6.5rem;
+  padding: .3rem;
+  background-color: black;
+  color: #a5db53;
+  margin-top: .6rem; }
+
+.display-history {
+  min-height: 1.5rem;
+  font-size: 1.3rem;
+  max-width: 100%; }
+
+.display-history-wrapper, .display-wrapper {
+  overflow-wrap: break-word;
+  max-width: 100%; }
+
+.display {
+  min-height: 2rem;
+  font-size: 1.7rem; }
+
 /*Key Pad GRID ************/
 .key-pad {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px 50px;
+  grid-template-columns: 5rem 5rem 5rem 5rem;
+  grid-template-rows: 5rem 5rem 5rem 5rem 5rem;
   grid-template-areas: "clear clear divide multiply" "seven eight nine subtract" "four five six add" "one two three equals" "zero zero decimal equals";
   grid-column-gap: 2px;
   grid-row-gap: 3px;
   padding: 1rem;
   color: whitesmoke;
-  font-family: monospace , Courier, 'Courier New'; }
+  font-family: monospace , Courier, 'Courier New';
+  font-weight: bold;
+  font-size: 1.5rem; }
 
 .item-zero {
   grid-area: zero; }
@@ -74,19 +121,25 @@
   background-color: #252121;
   text-align: center;
   border: 1px solid black;
-  line-height: 50px; }
+  line-height: 5rem; }
   .key:hover {
-    background-color: gray; }
+    background-color: #414040; }
 
 .item-equals {
-  line-height: 100px;
-  background-color: green; }
+  line-height: 10rem;
+  background-color: #2525c5; }
+  .item-equals:hover {
+    background-color: #4040d1; }
 
 .item-clear {
   background-color: #d64848; }
+  .item-clear:hover {
+    background-color: #fd7373; }
 
 .item-divide, .item-multiply, .item-subtract, .item-add {
   background-color: #636262; }
+  .item-divide:hover, .item-multiply:hover, .item-subtract:hover, .item-add:hover {
+    background-color: #919191; }
 
 /*Key Primary Module********/
 /*Key Tall Module********/
