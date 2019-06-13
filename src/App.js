@@ -190,7 +190,7 @@ class App extends Component {
   render(){
 
     return(
-      <div>
+      <div className="calc-container">
         <MainDisplay 
           displayHistory={this.state.displayHistory}
           display={this.state.display}

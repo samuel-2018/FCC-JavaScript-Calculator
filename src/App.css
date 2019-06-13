@@ -1,0 +1,95 @@
+* {
+  border: 1px dashed orangered; }
+
+/***************************
+            BASE           */
+/***************************
+            LAYOUT         */
+/*Calculator Container *****/
+/*Display *****************/
+/*Key Pad GRID ************/
+.key-pad {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
+  grid-template-areas: "clear clear divide multiply" "seven eight nine subtract" "four five six add" "one two three equals" "zero zero decimal equals";
+  grid-column-gap: 2px;
+  grid-row-gap: 3px;
+  padding: 1rem;
+  color: whitesmoke;
+  font-family: monospace , Courier, 'Courier New'; }
+
+.item-zero {
+  grid-area: zero; }
+
+.item-one {
+  grid-area: one; }
+
+.item-two {
+  grid-area: two; }
+
+.item-three {
+  grid-area: three; }
+
+.item-four {
+  grid-area: four; }
+
+.item-five {
+  grid-area: five; }
+
+.item-six {
+  grid-area: six; }
+
+.item-seven {
+  grid-area: seven; }
+
+.item-eight {
+  grid-area: eight; }
+
+.item-nine {
+  grid-area: nine; }
+
+.item-add {
+  grid-area: add; }
+
+.item-subtract {
+  grid-area: subtract; }
+
+.item-multiply {
+  grid-area: multiply; }
+
+.item-clear {
+  grid-area: clear; }
+
+.item-decimal {
+  grid-area: decimal; }
+
+.item-equals {
+  grid-area: equals; }
+
+/***************************
+            MODULE         */
+/*Key Module****************/
+.key {
+  background-color: #252121;
+  text-align: center;
+  border: 1px solid black;
+  line-height: 50px; }
+  .key:hover {
+    background-color: gray; }
+
+.item-equals {
+  line-height: 100px;
+  background-color: green; }
+
+.item-clear {
+  background-color: #d64848; }
+
+.item-divide, .item-multiply, .item-subtract, .item-add {
+  background-color: #636262; }
+
+/*Key Primary Module********/
+/*Key Tall Module********/
+/*Key Wide Modules*********/
+/***************************
+            STATE         */

@@ -135,7 +135,7 @@ class KeyPad extends Component {
     
 
     return(
-      <section>
+      <section className="key-pad">
         {
           this.keyDataArr.map( (item, index) => (
             // console.log('this.keyDataArr.map  ', item, index),

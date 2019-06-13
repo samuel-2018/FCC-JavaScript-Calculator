@@ -9,7 +9,7 @@ class Key extends Component {
     // console.log('key component, keyPrsCb: ', keyPrsCb);
     
     return(
-      <div id={keyID} className={"key "+keyID} onClick={keyPrsCb} keyvalue={keyValue}>
+      <div id={keyID} className={"key item-"+keyID} onClick={keyPrsCb} keyvalue={keyValue}>
         {keyDisplay}
       </div>
     )

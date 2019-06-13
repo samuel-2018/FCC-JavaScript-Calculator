@@ -1,1 +1,101 @@
 
+
+* {
+  border: 1px dashed orangered;
+}
+/***************************
+            BASE           */
+
+/***************************
+            LAYOUT         */
+
+/*Calculator Container *****/
+.calc-container {
+
+}
+
+/*Display *****************/
+.main-display {
+
+}
+.display-history {
+
+}
+.display {
+
+}
+
+/*Key Pad GRID ************/
+.key-pad {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
+  grid-template-areas: 
+  "clear clear divide multiply"
+  "seven eight nine subtract"
+  "four five six add"
+  "one two three equals"
+  "zero zero decimal equals";
+  
+  grid-column-gap: 2px;
+  grid-row-gap: 3px;
+  padding: 1rem;
+
+  color: whitesmoke;
+  font-family: monospace , Courier, 'Courier New';
+}
+
+
+
+
+
+@each $key in zero, one, two, three, four, five, six, seven, eight, nine, add, subtract, multiply, clear, decimal, equals {
+  .item-#{$key} {
+    grid-area: #{$key};
+  }
+} 
+
+
+/***************************
+            MODULE         */
+/*Key Module****************/
+.key {
+background-color: rgb(37, 33, 33);
+text-align: center;
+border: 1px solid black;
+line-height: 50px;
+// width: 80px;
+// height: 80px;
+  &:hover {
+    background-color: gray;
+  }
+}
+
+.item-equals {
+  line-height: 100px;
+  background-color: green;
+}
+.item-clear {
+  background-color: rgb(214, 72, 72);
+}
+.item-divide, .item-multiply, .item-subtract, .item-add {
+  background-color: rgb(99, 98, 98);
+}
+
+
+
+
+
+/*Key Primary Module********/
+
+/*Key Tall Module********/
+
+/*Key Wide Modules*********/
+
+// .key .key--wide
+// .key .key--tall 
+// .key .key--primary
+
+
+/***************************
+            STATE         */
