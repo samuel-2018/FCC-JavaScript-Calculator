@@ -1,6 +1,4 @@
 /***************************
-            BASE           */
-/***************************
             LAYOUT         */
 body {
   background-color: steelblue; }
@@ -125,6 +123,7 @@ body {
   .key:hover {
     background-color: #414040; }
 
+/*Key Module Mods **********/
 .item-equals {
   line-height: 10rem;
   background-color: #2525c5; }
@@ -140,9 +139,3 @@ body {
   background-color: #636262; }
   .item-divide:hover, .item-multiply:hover, .item-subtract:hover, .item-add:hover {
     background-color: #919191; }
-
-/*Key Primary Module********/
-/*Key Tall Module********/
-/*Key Wide Modules*********/
-/***************************
-            STATE         */

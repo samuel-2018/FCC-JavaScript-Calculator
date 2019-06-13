@@ -1,14 +1,5 @@
-
-
-// * {
-//   border: 1px dashed orangered;
-// }
-/***************************
-            BASE           */
-
 /***************************
             LAYOUT         */
-
 body {
   background-color: steelblue;
 }
@@ -24,8 +15,6 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 22rem;
-  //display: block;
- // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,15 +22,12 @@ body {
 }
 
 /*Display *****************/
-// TO DO make it so each display wraps the text
 .main-display {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   width: 20.5rem;
   box-sizing: border-box;
-  //height: 30px;
-
   color: black;
   font-family: monospace , Courier, 'Courier New';
   max-width: 100%;
@@ -53,11 +39,9 @@ body {
   margin-top: .6rem;
 }
 .display-history {
- min-height: 1.5rem;
- font-size: 1.3rem;
-// line-height: 
-max-width: 100%;
-
+  min-height: 1.5rem;
+  font-size: 1.3rem;
+  max-width: 100%;
 }
 
 // 'overflow-wrap' seems to only work on the first child of an element, so each element needing wrapping now has a parent for that sole purpose.
@@ -92,32 +76,25 @@ max-width: 100%;
   font-size: 1.5rem;
 }
 
-
-
-
-
 @each $key in zero, one, two, three, four, five, six, seven, eight, nine, add, subtract, multiply, clear, decimal, equals {
   .item-#{$key} {
     grid-area: #{$key};
   }
 } 
 
-
 /***************************
             MODULE         */
 /*Key Module****************/
 .key {
-background-color: rgb(37, 33, 33);
-text-align: center;
-border: 1px solid black;
-line-height: 5rem;
-// width: 80px;
-// height: 80px;
+  background-color: rgb(37, 33, 33);
+  text-align: center;
+  border: 1px solid black;
+  line-height: 5rem;
   &:hover {
     background-color: rgb(65, 64, 64);
   }
 }
-
+/*Key Module Mods **********/
 .item-equals {
   line-height: 10rem;
   background-color: rgb(37, 37, 197);
@@ -137,21 +114,3 @@ line-height: 5rem;
     background-color: rgb(145, 145, 145);
   }
 }
-
-
-
-
-
-/*Key Primary Module********/
-
-/*Key Tall Module********/
-
-/*Key Wide Modules*********/
-
-// .key .key--wide
-// .key .key--tall 
-// .key .key--primary
-
-
-/***************************
-            STATE         */

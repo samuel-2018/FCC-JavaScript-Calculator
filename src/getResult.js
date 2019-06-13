@@ -1,11 +1,3 @@
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-// Data for testing
-// const fullInput = ['0.1', '+', '0.2', '*', '4', '+', 7, '-', 90, '/', 333333];
-
-
-// TO DO When user hits '=', then what is in fullInput gets sent to getResult
 function getResult(fullInput) {
   // TERMINATION
   if (fullInput.length < 1) return 0;
@@ -34,10 +26,10 @@ function getResult(fullInput) {
 
   // Finds index of operator according to order of operations
   if (fullInput.findIndex(isDivOrMul) !== -1) {
-    // gets index of operator
+    // Gets index of operator
     operatorPos = fullInput.findIndex(isDivOrMul);
   } else if (fullInput.findIndex(isSubOrAdd) !== -1) {
-    // gets index of operator
+    // Gets index of operator
     operatorPos = fullInput.findIndex(isSubOrAdd);
   }
 
@@ -71,7 +63,7 @@ function getResult(fullInput) {
   result = result.toFixed(10);
 
   // Removes trailing zeroes
-  result = result.replace(/0*$/, ''); // because of the toFixed, is there always a '.', which is why '20' does not get changed to '2'? It is really '20.'?
+  result = result.replace(/0*$/, ''); // Because of the toFixed, is there always a '.', which is why '20' does not get changed to '2'? It is really '20.'?
 
   // Removes trailing '.'
   result = result.replace(/.$/, '');
@@ -84,7 +76,5 @@ function getResult(fullInput) {
   // Returns an array to getResult with what is left to calculate
   return getResult(newFullInput);
 }
-
-//console.log(getResult(fullInput));
 
 export default getResult;
